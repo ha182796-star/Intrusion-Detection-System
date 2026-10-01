@@ -91,14 +91,21 @@ done
    Objective: Queries systemd journal logs for failed password attempts and authentication failures.   
    Observed Data: Captured timestamps, process IDs, and pseudo-terminal IDs (tty/pts/2) associated with recent failed sudo attempts.  
    5.2 Recent LoginsCommand Used: last | head -n 10   
+   
    Objective: Audits session histories for interactive user logins, terminal locations (tty7), and session durations.
+   
    Observed Data: Tracked active and past sessions for default user kali and display manager lightdm.  
+   
    5.3 Open Network PortsCommand Used: sudo ss -tulpn | grep LISTEN  
+   
    Objective: Enumerates active listening TCP/UDP sockets to identify running daemons and exposed entry points.  
    Observed Data: Identified a single active TCP socket listening on loopback 127.0.0.1:36767 bound to containerd (PID 1116).  
    5.4 Top Running ProcessesCommand Used: ps aux | head -n 10   Objective: Monitors process trees sorted by resource usage (%CPU and %MEM).  
    Observed Data: Showed standard core system daemons (/sbin/init splash) and kernel threads (kworker, kthreadd). 
    5.5 Changed Files in /etcCommand Used: find /etc -type f -mtime -1  
+   
    Objective: Detects unauthorized configuration edits by flagging files modified within the past 24 hours. 
+   
    Observed Data: Flagged recent modification activity on /etc/resolv.conf. 
+   
    6. Conclusion This project demonstrates that a functional, lightweight security monitoring tool can be constructed using native Linux system commands and Bash shell scripting. By aggregating journalctl, last, ss, ps, and find, ids4.sh provides continuous operational security visibility on-screen while writing persistent audit records to ids_log.txt.
