@@ -86,9 +86,14 @@ do
     echo "Refreshing in 5 seconds... (Press Ctrl + C to stop)"
     sleep 5
 done
+
+
    5. Security Inspection Modules & Dashboard Findings
-   5.1 Failed Login AttemptsCommand Used: journalctl -g "Failed password" -n 10   
-   Objective: Queries systemd journal logs for failed password attempts and authentication failures.   
+
+   5.1 Failed Login AttemptsCommand Used: journalctl -g "Failed password" -n 10  
+   
+   Objective: Queries systemd journal logs for failed password attempts and authentication failures. 
+   
    Observed Data: Captured timestamps, process IDs, and pseudo-terminal IDs (tty/pts/2) associated with recent failed sudo attempts.  
    5.2 Recent LoginsCommand Used: last | head -n 10   
    
@@ -99,9 +104,11 @@ done
    5.3 Open Network PortsCommand Used: sudo ss -tulpn | grep LISTEN  
    
    Objective: Enumerates active listening TCP/UDP sockets to identify running daemons and exposed entry points.  
+   
    Observed Data: Identified a single active TCP socket listening on loopback 127.0.0.1:36767 bound to containerd (PID 1116).  
    5.4 Top Running ProcessesCommand Used: ps aux | head -n 10   Objective: Monitors process trees sorted by resource usage (%CPU and %MEM).  
    Observed Data: Showed standard core system daemons (/sbin/init splash) and kernel threads (kworker, kthreadd). 
+   
    5.5 Changed Files in /etcCommand Used: find /etc -type f -mtime -1  
    
    Objective: Detects unauthorized configuration edits by flagging files modified within the past 24 hours. 
