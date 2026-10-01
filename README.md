@@ -1,9 +1,13 @@
 Markdown# Intrusion Detection System (IDS): Security Monitoring Tool
 
 **Program:** GLAXIT Internship Program — Advanced Cyber Security
+
 **Developed By:** Hasnain Ali 
-**Environment:** Kali Linux (Bash Shell Scripting)[cite: 18]  
+
+**Environment:** Kali Linux (Bash Shell Scripting)
+
 **Date:** August 23, 2026
+
 **Submitted To:** Sir Saifullah  
 1. IntroductionThis project presents a lightweight Intrusion Detection System (IDS) built entirely using Bash shell scripting on Kali Linux. The tool continuously monitors a system for signs of unauthorized access or suspicious activity, displaying findings in a live, auto-refreshing terminal dashboard while simultaneously logging every scan cycle to a persistent text file (ids_log.txt) for auditing.
    2. ObjectivesDetect and report failed login attempts on the host system.   Track recent and active user login sessions.   Identify open network ports that may indicate unauthorized services.   Monitor top running processes for unusual resource consumption or activity.   Detect recently modified configuration files under the /etc directory.   Present all findings on-screen in real time while persisting records in a single log file.
